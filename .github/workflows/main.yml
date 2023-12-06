@@ -7,9 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - name: Clone-down   
       - run: |
-          ci/build-app.sh
-
+          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
+      - name: Clone-down
       - uses: actions/checkout@v4
-   
+
+      - name: List files in the repository
+        run: ci/build-app.sh
